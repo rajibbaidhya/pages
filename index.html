@@ -6,327 +6,264 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <style>
 
-        /* Import Google font - Poppins */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
 body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgb(255, 255, 255);
-}
-.container {
-  position: relative;
-  max-width: 550px;
-  width: 100%;
-  background: #fff;
-  padding: 25px;
-  border-radius: 8px;
-}
-.container header {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.5rem;
-  color: #333;
-  font-weight: 600;
-  text-align: center;
-  span {
-    position: relative;
-    font-family: "Poppins", sans-serif;
-    font-weight: 100;
-    font-size: medium;
-    left: 2px;
-  }
-}
-.container .form {
-  margin-top: 30px;
-}
-.form .input-box {
-  width: 100%;
-  margin-top: 20px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
 }
 
-.form :where(.input-box input, .select-box) {
-  position: relative;
-  height: 50px;
-  width: 100%;
-  outline: none;
-  font-size: 1rem;
-  color: #707070;
-  margin-top: 8px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 0 15px;
-}
-.input-box input:focus {
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+header {
+    background-color: #4682b4;
+    color: white;
+    text-align: center;
+    padding: 1rem;
 }
 
-/* For Chrome, Safari, Edge, and Opera */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+main {
+    padding: 2rem;
 }
 
-/* For Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
+section {
+    margin-bottom: 2rem;
 }
 
+input {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
 
-.address :where(input, .select-box) {
-  margin-top: 15px;
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #4682b4;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
-.select-box select {
-  height: 100%;
-  width: 100%;
-  outline: none;
-  border: none;
-  color: #707070;
-  font-size: 1rem;
+
+button:hover {
+    background-color: #5a9bd6;
 }
-.form .button {
-  height: 55px;
-  width: 100%;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 400;
-  border-radius: 0.6rem;
-  margin-top: 30px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  background: #0095F6;
+
+#weather-info, #travel-suggestions {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.form button:hover {
-    opacity: 0.6;
+
+#forecast, #alerts {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
 }
-/*Responsive*/
-@media screen and (max-width: 320px) {
-  .form .column {
-    flex-wrap: wrap;
-  }
-}
+
 
     </style>
   </head>
   <body>
-    <section id="section1" class="container" style="display: block;">
-      <header>Sign up <span>(step 1)</span></header>
-      <form id="form1" method="post" action="config.php" class="form">
-        <div class="input-box">
-          <input type="text" placeholder="Enter full name" name="name" required />
-        </div>
-
-        <div class="input-box">
-          <input type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" placeholder="Enter email address" name="email" oninvalid="this.setCustomValidity('Please enter a valid email address')" required/>
-        </div>
-
-        <div class="column">
-          <div class="input-box">
-            <input type="number" pattern="[6789][0-9]{9}" placeholder="Enter phone number" name="phone" required oninvalid="this.setCustomValidity('Please enter a valid number')" required/>
-          </div>
-          <div>
-
-          </div>
-        </div>
-
-        <button id="button1" class="button">submit</button>
-      </form>
-    </section>
 
 
-    <section id="section2" class="container" style="display: none;">
-        <header>Shipping <span>(step 2)</span></header>
-        <form id="form2" method="post" action="config.php" class="form">
-  
-          <div class="input-box address">
-            <input type="text" placeholder="Street" name="street" required />
-            <input type="text" placeholder="City" name="city" required />
-            <div class="column">
-              <input type="text" placeholder="District" name="district" required />
-              <div class="select-box">
-                <select name="state" required>
-                  <option hidden>State</option> 
-                  <option value="AP">Andhra Pradesh</option>
-                  <option value="AR">Arunachal Pradesh</option>
-                  <option value="AS">Assam</option>
-                  <option value="BR">Bihar</option>
-                  <option value="CT">Chhattisgarh</option>
-                  <option value="GA">Gujarat</option>
-                  <option value="HR">Haryana</option>
-                  <option value="HP">Himachal Pradesh</option>
-                  <option value="JK">Jammu and Kashmir</option>
-                  <option value="GA">Goa</option>
-                  <option value="JH">Jharkhand</option>
-                  <option value="KA">Karnataka</option>
-                  <option value="KL">Kerala</option>
-                  <option value="MP">Madhya Pradesh</option>
-                  <option value="MH">Maharashtra</option>
-                  <option value="MN">Manipur</option>
-                  <option value="ML">Meghalaya</option>
-                  <option value="MZ">Mizoram</option>
-                  <option value="NL">Nagaland</option>
-                  <option value="OR">Odisha</option>
-                  <option value="PB">Punjab</option>
-                  <option value="RJ">Rajasthan</option>
-                  <option value="SK">Sikkim</option>
-                  <option value="TN">Tamil Nadu</option>
-                  <option value="TG">Telangana</option>
-                  <option value="TR">Tripura</option>
-                  <option value="UT">Uttarakhand</option>
-                  <option value="UP">Uttar Pradesh</option>
-                  <option value="WB">West Bengal</option>
-                  <option value="AN">Andaman and Nicobar Islands</option>
-                  <option value="CH">Chandigarh</option>
-                  <option value="DN">Dadra and Nagar Haveli</option>
-                  <option value="DD">Daman and Diu</option>
-                  <option value="DL">Delhi</option>
-                  <option value="LD">Lakshadweep</option>
-                  <option value="PY">Puducherry</option>
-                </select>
-              </div>
-            </div>
-            <div class="column">
-              <input type="text" placeholder="Pincode" name="pincode" pattern="[1-9][0-9]{5}" required/>
-              <div class="select-box" required>
-                <select>
-                  <option name="country" hidden>Country</option> 
-                  <option>India</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <button id="button2" class="button">submit</button>
-        </form>
-      </section>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Weather Predictor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Travel Weather Predictor</h1>
+    </header>
+    <main>
+        <section class="search">
+            <input type="text" id="location" placeholder="Enter a location">
+            <button onclick="getWeather()">Check Weather</button>
+        </section>
+        <section id="weather-info">
+            <h2>Current Weather Details</h2>
+            <div id="details"></div>
+        </section>
+        <section id="forecast">
+            <h2>5-Day Forecast</h2>
+            <div id="forecast-details"></div>
+        </section>
+        <section id="travel-suggestions">
+            <h2>Travel Recommendations</h2>
+            <div id="recommendations"></div>
+        </section>
+        <section id="alerts">
+            <h2>Weather Alerts</h2>
+            <div id="alert-messages"></div>
+        </section>
+        <section id="local-attractions">
+            <h2>Local Attractions</h2>
+            <div id="attractions"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
 
 
-    <section id="section3" class="container" style="display: none;">
-        <header>Checkout <span>(step 3)</span></header>
-        <form id="form3" method="post" action="config.php" class="form">
-  
-          <div class="input-box address">
-            <div class="select-box">
-              <select name="size" required>
-                <option hidden>Size</option> 
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-                <option>XXL</option>
-              </select>
-            </div>
-  
-            <input type="text" placeholder="Quantity" name="quantity" pattern="[1-9]" required/>
-  
-            <div class="select-box">
-              <select name="payment_method" required>
-                <option hidden>Payment method</option> 
-                <option>Cash on delivery</option>
-                <option>upi/card/netbanking</option>
-              </select>
-            </div>
-  
-          </div>
-          <button id="button3" class="button">submit</button>
-        </form>
-    </section>
-    
 
 
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script>
 
-
-
-const Button1 = document.getElementById('button1');
-const Button2 = document.getElementById('button2');
-const Button3 = document.getElementById('button3');
-const Form1 = document.getElementById('form1');
-const Form2 = document.getElementById('form2');
-const Form3 = document.getElementById('form3');
-const section1 = document.getElementById('section1');
-const section2 = document.getElementById('section2');
-const section3 = document.getElementById('section3');
-
-function validateForm(form) {
-  const inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
-  for (let input of inputs) {
-    if (!input.value.trim()) {
-      alert('Please fill all required fields.');
-      return false;
+// Function to fetch weather data
+async function getWeather() {
+    const location = document.getElementById('location').value;
+    if (!location) {
+        alert('Please enter a location');
+        return;
     }
-  }
-  return true;
+
+    // OpenWeatherMap API details
+    const weatherApiKey = 'YOUR_OPENWEATHER_API_KEY';
+    const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${weatherApiKey}&units=metric`;
+    const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${weatherApiKey}&units=metric`;
+
+    try {
+        // Fetch current weather data
+        const weatherResponse = await fetch(weatherApiUrl);
+        const weatherData = await weatherResponse.json();
+        displayWeather(weatherData);
+        suggestTravelActivities(weatherData);
+        checkWeatherAlerts(weatherData);
+
+        // Fetch 5-day forecast data
+        const forecastResponse = await fetch(forecastApiUrl);
+        const forecastData = await forecastResponse.json();
+        displayForecast(forecastData);
+
+        // Fetch local attractions using Google Places API
+        fetchLocalAttractions(weatherData.coord.lat, weatherData.coord.lon);
+    } catch (error) {
+        alert('Error fetching weather data');
+        console.error(error);
+    }
 }
 
-Button1.addEventListener('click', function(event) {
-  event.preventDefault(); // Prevent form submission
-  if (validateForm(Form1)) {
-    section1.style.display = "none";
-    section2.style.display = "block";
-    section3.style.display = "none";
-  }
-});
+// Function to display current weather details
+function displayWeather(data) {
+    const details = document.getElementById('details');
+    details.innerHTML = `
+        <p>Location: ${data.name}</p>
+        <p>Temperature: ${data.main.temp}°C</p>
+        <p>Weather: ${data.weather[0].description}</p>
+        <p>Humidity: ${data.main.humidity}%</p>
+        <p>Wind Speed: ${data.wind.speed} m/s</p>
+        <p>Sunrise: ${new Date(data.sys.sunrise * 1000).toLocaleTimeString()}</p>
+        <p>Sunset: ${new Date(data.sys.sunset * 1000).toLocaleTimeString()}</p>
+    `;
+}
 
-Button2.addEventListener('click', function(event) {
-  event.preventDefault(); // Prevent form submission
-  if (validateForm(Form2)) {
-    section1.style.display = "none";
-    section2.style.display = "none";
-    section3.style.display = "block";
-  }
-});
+// Function to display 5-day forecast
+function displayForecast(data) {
+    const forecastDetails = document.getElementById('forecast-details');
+    forecastDetails.innerHTML = '';
 
-Button3.addEventListener('click', function(event) {
-  event.preventDefault(); // Prevent form submission
-  if (validateForm(Form3)) {
-    alert('submitted successfully!');
-    // Perform form submission logic here
-  }
-});
-
-// jQuery logic to validate Pincode
-$(document).on('input', 'input[placeholder="Pincode"]', function() {
-  const $this = $(this);
-  function validatePincode() {
-    const inputValue = $this.val();
-    const pattern = /^[1-9][0-9]{5}$/;
-    if (!pattern.test(inputValue)) {
-      $this.val(''); // Clear the text inside the input field
-      $this.attr('placeholder', 'Invalid Pincode').css('color', 'red'); // Change placeholder to red
-    } else {
-      $this.css('color', '#48ff00'); // Change text color to green if valid
+    // Loop through forecast data every 8 intervals (24 hours)
+    for (let i = 0; i < data.list.length; i += 8) {
+        const forecast = data.list[i];
+        forecastDetails.innerHTML += `
+            <div class="forecast-item">
+                <p>Date: ${new Date(forecast.dt * 1000).toLocaleDateString()}</p>
+                <p>Temperature: ${forecast.main.temp}°C</p>
+                <p>Weather: ${forecast.weather[0].description}</p>
+            </div>
+        `;
     }
-    setTimeout(validatePincode, 2000); // Recheck every 2 second
-  }
-  validatePincode();
-});
+}
 
-// jQuery logic to validate Quantity
-$(document).on('input', 'input[placeholder="Quantity"]', function() {
-  const $this = $(this);
-  function validateQuantity() {
-    const inputValue = $this.val();
-    const pattern = /^[1-9]$/;
-    if (!pattern.test(inputValue)) {
-      $this.val(''); // Clear the text inside the input field
-      $this.attr('placeholder', 'Invalid Quantity').css('color', 'red'); // Change placeholder to red
+// Function to suggest travel activities based on weather
+function suggestTravelActivities(data) {
+    const recommendations = document.getElementById('recommendations');
+    const temp = data.main.temp;
+    const weatherDescription = data.weather[0].main.toLowerCase();
+    const windSpeed = data.wind.speed;
+    let suggestion = '';
+
+    // Rule-based AI model for activity suggestions
+    if (temp > 30) {
+        if (weatherDescription.includes('clear')) {
+            suggestion = 'It\'s sunny and warm! Perfect for a beach day or outdoor swimming.';
+        } else if (weatherDescription.includes('rain')) {
+            suggestion = 'It\'s warm but rainy. How about visiting indoor attractions or enjoying a warm meal in a café?';
+        }
+    } else if (temp > 20) {
+        if (weatherDescription.includes('clear')) {
+            suggestion = 'Great weather for hiking or exploring nature trails.';
+        } else if (weatherDescription.includes('clouds')) {
+            suggestion = 'Cloudy but pleasant! Ideal for sightseeing or walking tours.';
+        }
+    } else if (temp > 10) {
+        if (windSpeed > 5) {
+            suggestion = 'It\'s a bit chilly with some wind. Consider visiting museums or indoor attractions.';
+        } else {
+            suggestion = 'Mildly cool weather, perfect for strolling in the city or exploring local markets.';
+        }
     } else {
-      $this.css('color', '#48ff00'); // Change text color to green if valid
+        suggestion = 'It\'s quite cold! Enjoy cozy indoor activities like visiting a historical site or a café.';
     }
-    setTimeout(validateQuantity, 1000); // Recheck every 1 second
-  }
-  validateQuantity();
-});
 
+    recommendations.innerHTML = `<p>${suggestion}</p>`;
+}
+
+// Function to check for severe weather alerts
+function checkWeatherAlerts(data) {
+    const alerts = document.getElementById('alert-messages');
+    alerts.innerHTML = ''; // Clear previous alerts
+
+    // Example: Check for severe weather conditions (e.g., storms)
+    if (data.weather[0].main.toLowerCase().includes('storm')) {
+        alerts.innerHTML = '<p><strong>Severe Weather Alert:</strong> A storm is expected. Please stay safe and take necessary precautions.</p>';
+    } else {
+        alerts.innerHTML = '<p>No severe weather alerts at this moment.</p>';
+    }
+}
+
+// Function to fetch local attractions using Google Places API
+async function fetchLocalAttractions(lat, lon) {
+    const placesApiKey = 'YOUR_GOOGLE_PLACES_API_KEY';
+    const placesApiUrl = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=5000&type=tourist_attraction&key=${placesApiKey}`;
+
+    try {
+        const response = await fetch(placesApiUrl);
+        const data = await response.json();
+        displayLocalAttractions(data.results);
+    } catch (error) {
+        alert('Error fetching local attractions');
+        console.error(error);
+    }
+}
+
+// Function to display local attractions
+function displayLocalAttractions(attractions) {
+    const attractionsDiv = document.getElementById('attractions');
+    attractionsDiv.innerHTML = '';
+
+    if (attractions.length === 0) {
+        attractionsDiv.innerHTML = '<p>No nearby attractions found.</p>';
+        return;
+    }
+
+    attractions.forEach(attraction => {
+        attractionsDiv.innerHTML += `
+            <div class="attraction-item">
+                <p><strong>${attraction.name}</strong></p>
+                <p>Address: ${attraction.vicinity}</p>
+                <p>Rating: ${attraction.rating || 'N/A'}</p>
+            </div>
+        `;
+    });
+}
 
 
       </script>
